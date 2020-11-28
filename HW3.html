@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        function getPrime(n) {
+           
+           const primeArr = [];
+
+                    nextPrime:
+                    for (let i = 3; i <= n; i++) {
+
+                        for (let j = 2; j < i; j++) {
+                            if (i % j == 0) continue nextPrime; 
+                        }
+
+                    primeArr.push(i); // простое число
+                    }
+                return(primeArr);
+        }
+            
+        /*
+
+            Не подскажете, что тут принципиально неверно? Верхний вариант уже с помощью интернета реализовал только,а с этим так и не разобрался. Были варианты, что выводил 3, 5 и заканчивал скрипт. Это связано с return?
+
+        const primeArr = [];
+
+            
+            for(let i = 2; i <= n; i++) {
+                
+                    for(let j = 2; j <= i; j++) {
+                        if(i % j === 0) {
+                            
+                            break;
+                        }  else {return(i)}
+                    
+                       
+                        if(i) primeArr.push(i);  
+                        } 
+               
+            }
+                 
+            
+      
+            return primeArr;
+        }
+        */
+       
+
+        alert(getPrime(100));
+           
+
+            
+        
+       
+
+    </script>
+
+    <script>
+        //Просто собирю массив чисел
+        function addToArr(arg) {
+            let x = []
+            for(let i = 0; i <= arg; i++) {
+                x.push(i);
+            }
+            return x;
+        }
+
+        let y = addToArr(20);
+        alert(y);
+
+        function countBasketPrice(array) {
+            let a = 0;
+            for(let i = 0; i < array.length; i++) {
+                a += array[i];
+            }
+            return a;
+        }
+
+        let b = countBasketPrice(y);
+        alert(b);
+
+        //Ниже еще один вариант. Как я понял из урока, это один их самых коротких способов сумму элементов собрать)
+
+        const z = y.reduce((acc, elem) => {
+            return (acc + elem)
+        }, 0)
+        alert(z); 
+    </script>
+
+    <script>
+      
+        for( let i = 0; alert(i), i < 9; i++);
+        
+    </script>
+
+    <script>
+        let x = "x";
+        let y = 20;
+        for(let i = 0; i < y; i++) {
+           console.log(x.repeat(i));
+        }
+        
+        //Выше, получается, встроенный метод, а если вручную, то получается что-то вроде этого:
+
+        function strRep(str, times) {
+            let output = "";
+            for(let i = 0; i < times; i++) {
+                console.log(output += str);
+            }
+            return output;
+        }
+
+        let z = strRep("x", 20);
+        alert(z);
+
+    </script>
+
+</body>
+</html>
