@@ -1,0 +1,30 @@
+.board {
+    width: 1000px;
+    height: 1000px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    float: left;
+    color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+
+.black {
+    background-color: black;
+}
+
+.noBackgn {
+    background-color: wheat;
+}
+
+.figureBlack {
+    color: #080C20;
+ }
