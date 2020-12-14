@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Первое задание. Объект с помощью alert() некорректно выводится, это нормально?
+        function foo(num) {
+            if(num > 999) {
+                    alert("слишком большое число");
+                    return {};    
+            } else {
+                this.ones = (num % 10),
+                this.tens = ((num % 100) - this.ones) / 10,
+                this.huns = ((num % 1000) - (num % 100)) / 100
+            }
+        }
+        const number = +prompt("Введите число от 1 до 999");
+       
+        const obj = new foo(number);
+        console.log(obj);
+
+    
+        //Второе задание. Получается, перевел значения в массив, как на уроке
+        let basket = {
+            car: 5,
+            fruit: 10,
+            shirt: 15
+        }
+
+        let values = Object.values(basket);
+        function countBasketPrice(array) {
+            let a = 0;
+            for(let i = 0; i < array.length; i++) {
+                a += array[i];
+            }
+            return a;
+        }
+        alert(countBasketPrice(values));
+    </script>
+</body>
+</html>

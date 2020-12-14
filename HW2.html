@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>1. <br>
+    префиксная форма, возвращает уже увеличенное значение <br>
+    постфиксная форма, возвращает старое значение
+    с = 2 + (уже было значение 2, прибавилось еще на один, то есть 3)=5 <br>
+    d = 2 + (b уже изменил значение и стал 2, но постфиксная форма пока опять вернет 2) <br>
+    а - все понятно, b теперь тоже = 3;
+    </p>
+    <p>
+      2.  Соответственно, 1 + (2*2) = 5
+    </p>
+  
+    <script>
+        // Задание 3
+        var a = +prompt("Введите число");
+        var b = +prompt("Введите другое число");
+
+        function arithmetic(a, b) {
+            if (a >= 0 && b >= 0) {
+            alert(a - b)
+            } else if(a < 0 && b < 0) {
+                alert(a * b)
+            } else if(a < 0 && b > 0 || a > 0 && b < 0) {
+                alert(a + b)
+            } 
+        }
+
+        arithmetic(a, b);
+
+    </script>
+
+    <script>
+        // Задание 4
+        var c = 10;
+        switch (c) {
+            case 5:
+                alert("неа");
+            case 10:
+                alert(c);
+            case 11: 
+                alert(++c);
+            case 12: 
+                alert(++c);
+            case 13: 
+                alert(++c);
+            case 14: 
+                alert(++c);
+            case 15: 
+                alert(++c);
+        }
+    </script>
+   
+    <script>
+        //Задание 5
+
+        function plus(x, y) {
+            return (x + y)
+        }
+
+        function minus(x, y) {
+            return (x - y)
+        }
+
+        function multiplication(x, y) {
+            return (x * y)
+        }
+
+        function division(x, y) {
+            return (x / y)
+        }
+
+        //Задание 6
+
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case plus:
+                    return plus(arg1, arg2);
+                    break;
+                case minus:
+                    return minus(arg1, arg2);
+                    break;
+                case multiplication:
+                    return multiplication(arg1, arg2);
+                    break;
+                case division:
+                    return division(arg1, arg2); 
+                    break;
+            }
+        }
+
+        mathOperation(2, 5, plus);
+
+        // Возможно, я не так понял задание, ведь код выше реализуется проще и короче, прямо как на уроке)
+        function mathOperationNew (arg1, arg2, callback) {
+            alert(callback(arg1, arg2));
+        }
+
+        mathOperationNew(5, 5, multiplication);
+
+
+    </script>
+    
+
+
+    <p>
+        Задание 7 <br>
+        Если, например, попробовать alert(null == 0), то будет false, т.к. вычитал, что по правилам языка при нестрогом сравнении null равен только undefined. <br>
+        А вот если попробовать alert(null >= 0), то будет true, т.к. сравнения преобразуют null в число.
+    </p>
+
+    <script>
+        //Задание 8
+        
+        function power(val, pow) {
+            if (pow == 1) {
+                return val;
+            } else {
+                return (val * power(val, pow - 1));
+            }
+        }
+
+        var val = +prompt("Введите положительное число");
+        var pow = +prompt("В какую степень возведем предыдущее число?")
+        alert(power(val, pow));
+    </script>
+</body>
+</html>
