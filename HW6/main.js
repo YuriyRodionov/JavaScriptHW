@@ -67,14 +67,18 @@ class Cart {
     constructor() {
         this.idManager = new IdManager();
         this.cartEl = document.querySelector("#cart");
+        
+        
         this._store = [];
         this.render();
+        this.getFullCart();
     }
 
     add(good) {
         this._store.push({id: this.idManager.getId(), ...good});
         this.render();
     }
+
 
     delete(id) {
         this._store = this._store.filter((el) => el.id !== id);
@@ -84,8 +88,72 @@ class Cart {
         return this._store.reduce((total, good) => total + good.price, 0);
     }
 
+    getFullCart() {
+
+        const closeEl = document.querySelector("#close");
+        
+        this.cartEl.addEventListener("click", () => {
+           const popup = document.querySelector("#popup");
+           const list = popup.querySelector(".list")
+           this._store.forEach(good => {
+            let $good = document.createElement('p');
+            
+
+            // Уже кучу вариантов перепробовал, но рабочего пока так и не нашел!
+            
+            
+            /*
+            let $quantity = document.createElement("p");
+            let p = 1;
+            $quantity.textContent = `${p}`;
+            let a = this._store.find(good => good.id)
+            if(a) {
+                $good.textContent = `${good.name} : ${good.price}`
+                $quantity.textContent = `${++p}`;
+              
+            } else {
+                $good.textContent = `${good.name} : ${good.price}`
+            }
+            $good.appendChild($quantity);
+            */
+            $good.textContent = `${good.name} : ${good.price}`
+            
+            list.appendChild($good);
+            
+            
+             })
+           popup.style.display = 'block';
+           
+            closeEl.addEventListener("click", () => {
+         
+            popup.style.display = 'none';
+         
+            })
+           
+            const next = document.querySelector("#next");
+            let step = 1;
+                const $sectors = document.querySelectorAll(".sector");
+            next.addEventListener("click", () => {
+                
+                for(let sector of $sectors) {
+                    sector.style.display = "none";
+                    
+                }
+                if(step < 3) {
+                    $sectors[step++].style.display = "block";
+                } else {
+                    popup.style.display = "none"
+                }
+                
+                
+            })
+        })
+       
+    }
+
     render(cart) {
         this.cartEl.textContent = "";
+       // тут вставил this.getFullCart() и долго думал, почему элементы массива кучу раз выводятся!
         const totalEl = document.createElement("p");
         totalEl.textContent = `В корзине ${this._store.length} товаров на сумму ${this.getPrice(this._store)}`;
         this.cartEl.appendChild(totalEl);
